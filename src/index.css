@@ -1035,8 +1035,8 @@ body::after {
   }
 
   .gym-nav-logo {
-    width: 98px;
-    border-radius: 16px;
+    width: 60px;
+    border-radius: 14px;
     order: -1;
     flex: 0 0 100%;
     align-self: center;
@@ -1048,6 +1048,7 @@ body::after {
     max-width: calc(50% - 0.25rem);
     font-size: 0.72rem;
     padding: 0.68rem 0.75rem;
+    border-radius: 999px;
     letter-spacing: 0.03em;
     text-align: center;
   }
@@ -1072,7 +1073,7 @@ body::after {
 
   .gym-title::before {
     width: min(92vw, 340px);
-    height: 138px;
+    height: 154px;
     top: 48%;
   }
 
@@ -1138,7 +1139,7 @@ body::after {
 
   .cool-pic-baki {
     width: min(92vw, 340px);
-    height: 138px;
+    height: 154px;
     left: 50%;
     top: 48%;
     bottom: auto;

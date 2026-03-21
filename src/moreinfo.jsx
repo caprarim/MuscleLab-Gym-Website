@@ -22,6 +22,7 @@ const MoreInfo = () => {
           <div className="moreinfo-hero-image-wrap">
             <img
               src={`${assetBase}musclelabimages/c.jpg`}
+              
               className="moreinfo-hero-image"
               alt="Muscle Lab Gym training floor"
             />
