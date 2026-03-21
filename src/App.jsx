@@ -2,14 +2,13 @@ import Home from "./home.jsx";
 import About from "./about.jsx";
 import MoreInfo from "./moreinfo.jsx";
 import Memberships from "./memberships.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EndBar from "./endBar.jsx";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import MemberShipPlans from "./membershipplans.jsx";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
@@ -23,7 +22,7 @@ function App() {
             element={<MemberShipPlans></MemberShipPlans>}
           ></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

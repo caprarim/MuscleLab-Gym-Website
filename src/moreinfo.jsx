@@ -1,9 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./sidebar.jsx";
 import EndBar from "./endBar.jsx";
 
 const MoreInfo = () => {
+  const assetBase = import.meta.env.BASE_URL;
   let nav = useNavigate();
 
   return (
@@ -20,7 +21,7 @@ const MoreInfo = () => {
           <h1 className="moreinfo-title">Welcome To Muscle Lab Gym</h1>
           <div className="moreinfo-hero-image-wrap">
             <img
-              src="/musclelabimages/c.jpg"
+              src={`${assetBase}musclelabimages/c.jpg`}
               className="moreinfo-hero-image"
               alt="Muscle Lab Gym training floor"
             />
@@ -137,18 +138,18 @@ const MoreInfo = () => {
             </div>
 
             <div className="moreinfo-actions">
-              <a className="moreinfo-cta-primary" href="/memberships">
+              <Link className="moreinfo-cta-primary" to="/memberships">
                 Join Now
-              </a>
-              <a className="moreinfo-cta-secondary" href="/about">
+              </Link>
+              <Link className="moreinfo-cta-secondary" to="/about">
                 See The Space
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="moreinfo-showcase">
             <img
-              src="/musclelabimages/h.jpg"
+              src={`${assetBase}musclelabimages/h.jpg`}
               alt="Gym member training"
               className="moreinfo-showcase-image"
             />
@@ -157,9 +158,9 @@ const MoreInfo = () => {
               <p className="moreinfo-showcase-text">
                 More action. More guidance. More reasons to press join.
               </p>
-              <a className="moreinfo-showcase-link" href="/memberships">
+              <Link className="moreinfo-showcase-link" to="/memberships">
                 Start Membership
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -175,14 +176,14 @@ const MoreInfo = () => {
               you loosen up, calm down, and walk back into the next workout
               feeling sharper.
             </p>
-            <a className="moreinfo-recovery-cta" href="/memberships">
+            <Link className="moreinfo-recovery-cta" to="/memberships">
               Claim Your Recovery Pass
-            </a>
+            </Link>
           </div>
 
           <div className="moreinfo-recovery-media">
             <img
-              src="/musclelabimages/b.jpg"
+              src={`${assetBase}musclelabimages/b.jpg`}
               alt="Placeholder recovery experience"
               className="moreinfo-recovery-image"
             />

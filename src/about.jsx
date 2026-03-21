@@ -3,6 +3,7 @@ import SideBar from "./sidebar.jsx";
 import { useNavigate } from "react-router-dom";
 import EndBar from "./endBar.jsx";
 const About = () => {
+  const assetBase = import.meta.env.BASE_URL;
   let nav = useNavigate();
   return (
     <>
@@ -16,7 +17,7 @@ const About = () => {
 
         <section className="about-v2-hero">
           <img
-            src="/musclelabimages/g.jpg"
+            src={`${assetBase}musclelabimages/g.jpg`}
             className="about-v2-hero-image"
             alt="Muscle Lab training"
           />

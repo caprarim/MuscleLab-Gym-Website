@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SideBar from "./sidebar.jsx";
 import EndBar from "./endBar.jsx";
 const Home = () => {
+  const assetBase = import.meta.env.BASE_URL;
   let [isModalDisplay, setModalDisplay] = useState(true);
   let nav = useNavigate();
 
@@ -43,7 +44,7 @@ const Home = () => {
 
             <div className="home-entry-modal-brand">
               <img
-                src="/muscle.jpg"
+                src={`${assetBase}muscle.jpg`}
                 alt="Muscle Lab Gym crest"
                 className="home-entry-modal-logo"
               />
@@ -87,7 +88,11 @@ const Home = () => {
         ></SideBar>
         <section className="gym-hero">
           <h1 className="gym-title">
-            <img src="/baki.jpg" className="cool-pic-baki" alt="Baki" />
+            <img
+              src={`${assetBase}baki.jpg`}
+              className="cool-pic-baki"
+              alt="Baki"
+            />
             <span className="gym-title-accent">Muscle Lab</span> Gym
           </h1>
         </section>
@@ -107,7 +112,7 @@ const Home = () => {
 
           <div className="home-promo-video-wrap">
             <video
-              src="/workout2.mp4"
+              src={`${assetBase}workout2.mp4`}
               className="home-promo-video"
               muted
               autoPlay

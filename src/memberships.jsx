@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import EndBar from "./endBar.jsx";
 
 const Memberships = () => {
+  const assetBase = import.meta.env.BASE_URL;
   let nav = useNavigate();
 
   let [isModalDisplay, setModalDisplay] = useState(true);
@@ -39,7 +40,7 @@ const Memberships = () => {
           <div className="membership-showcase-grid">
             <article className="membership-plan-card">
               <img
-                src="/musclelabimages/e.jpg"
+                src={`${assetBase}musclelabimages/e.jpg`}
                 alt="Membership Classic"
                 className="membership-plan-image"
               />
@@ -94,7 +95,7 @@ const Memberships = () => {
 
             <article className="membership-plan-card">
               <img
-                src="/musclelabimages/d.jpg"
+                src={`${assetBase}musclelabimages/d.jpg`}
                 alt="Membership Pro"
                 className="membership-plan-image"
               />
@@ -149,7 +150,7 @@ const Memberships = () => {
 
             <article className="membership-plan-card">
               <img
-                src="/musclelabimages/g.jpg"
+                src={`${assetBase}musclelabimages/g.jpg`}
                 alt="Membership Ultra-Pro"
                 className="membership-plan-image"
               />

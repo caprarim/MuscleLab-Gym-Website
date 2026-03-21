@@ -1,6 +1,7 @@
 import React from "react";
 
 const SideBar = ({ click1, click2, click3, click4 }) => {
+  const assetBase = import.meta.env.BASE_URL;
   return (
     <>
       <header className="gym-header unified-sidebar">
@@ -13,7 +14,7 @@ const SideBar = ({ click1, click2, click3, click4 }) => {
           </span>
           <img
             className="gym-nav-logo unified-sidebar-logo"
-            src="/muscle.jpg"
+            src={`${assetBase}muscle.jpg`}
             alt="Muscle Lab Gym logo"
             onClick={click2}
           />

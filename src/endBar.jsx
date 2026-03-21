@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const EndBar = () => {
+  const assetBase = import.meta.env.BASE_URL;
   const nav = useNavigate();
 
   return (
@@ -9,7 +10,7 @@ const EndBar = () => {
       <div className="footer-brand">
         <img
           className="footer-brand-logo"
-          src="/muscle.jpg"
+          src={`${assetBase}muscle.jpg`}
           alt="Muscle Lab Gym crest"
         />
         <p className="footer-brand-tagline">
