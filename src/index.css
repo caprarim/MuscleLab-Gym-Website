@@ -975,14 +975,21 @@ body::after {
     gap: 0.8rem;
   }
 
+  .home-page > * + * {
+    margin-top: 1.4rem;
+  }
+
   .home-entry-modal-shell {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+    min-height: auto;
+    max-height: min(88vh, 760px);
     padding: 1rem;
+    overflow-y: auto;
   }
 
   .home-entry-modal {
-    width: min(92%, 720px);
+    width: min(94vw, 720px);
     top: 50%;
   }
 
@@ -990,6 +997,7 @@ body::after {
     justify-items: center;
     padding-right: 0;
     text-align: center;
+    gap: 0.75rem;
   }
 
   .home-entry-modal-logo {
@@ -1012,41 +1020,52 @@ body::after {
   .home-entry-modal-primary,
   .home-entry-modal-secondary {
     width: 100%;
+    min-width: 0;
+    font-size: 0.92rem;
   }
 
   .gym-nav {
     width: 100%;
-    flex-wrap: wrap;
     min-height: auto;
-    gap: 0.45rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .gym-nav-logo {
     width: 88px;
     border-radius: 16px;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin: 0.15rem 0 0.25rem;
   }
 
   .gym-nav-item {
+    width: 100%;
     font-size: 0.72rem;
-    padding: 0.6rem 0.9rem;
-    letter-spacing: 0.035em;
+    padding: 0.68rem 0.75rem;
+    letter-spacing: 0.03em;
+    text-align: center;
   }
 
   .gym-hero {
-    margin-top: 2.4rem;
+    margin-top: 1.2rem;
     min-height: auto;
   }
 
   .gym-title::after {
-    letter-spacing: 0.16em;
+    letter-spacing: 0.12em;
+    margin-top: 0.65rem;
   }
 
   .gym-title {
-    font-size: 3.2rem;
+    margin: 1.2rem 0 0;
+    font-size: clamp(2.4rem, 14vw, 3.2rem);
   }
 
   .socials-container {
-    margin-top: 2.4rem;
+    margin-top: 1.8rem;
     padding: 1rem;
     gap: 0.85rem;
   }
@@ -1054,7 +1073,8 @@ body::after {
   .home-promo {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding: 0.95rem;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .home-promo-copy {
@@ -1070,6 +1090,8 @@ body::after {
     width: 100%;
     justify-self: stretch;
     aspect-ratio: 16 / 10;
+    clip-path: none;
+    border-radius: 20px;
   }
 
   .home-page .socials-container {
@@ -1092,6 +1114,10 @@ body::after {
   .footer-brand {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer-brand-logo {
+    width: 108px;
   }
 
   .footer-copyright {
@@ -1730,8 +1756,8 @@ body::after {
 
 @media (max-width: 760px) {
   .membership-page .membership-modal {
-    width: min(680px, 100%);
-    padding: 0.7rem;
+    width: min(680px, calc(100% - 1rem));
+    padding: 0.8rem;
   }
 
   .membership-showcase-grid {
@@ -1740,6 +1766,15 @@ body::after {
 
   .membership-plan-image {
     height: 220px;
+  }
+
+  .membership-plan-timing-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .membership-plan-timing-value {
+    text-align: left;
   }
 }
 
@@ -2235,11 +2270,20 @@ body::after {
 
 @media (max-width: 900px) {
   .membership-form-shell {
-    width: min(680px, 100%);
+    width: min(680px, calc(100% - 1rem));
   }
 
   .membership-input-grid {
     grid-template-columns: 1fr;
+  }
+
+  .membership-selected-plan-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .membership-payment-btn {
+    width: 100%;
   }
 }
 
@@ -2458,6 +2502,16 @@ body::after {
     margin-top: -0.6rem;
     padding-top: 1.5rem;
     clip-path: polygon(0 2.6%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .about-v2-title {
+    font-size: clamp(1.75rem, 11vw, 2.6rem);
+  }
+
+  .about-v2-feature,
+  .about-v2-detail {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
 }
 
@@ -2882,6 +2936,19 @@ body::after {
   .moreinfo-showcase-image {
     min-height: 520px;
   }
+
+  .moreinfo-recovery-section {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .moreinfo-recovery-title {
+    max-width: 14ch;
+  }
+
+  .moreinfo-recovery-image {
+    min-height: 300px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -2943,6 +3010,20 @@ body::after {
   .moreinfo-showcase-image {
     min-height: 420px;
     border-radius: 26px;
+  }
+
+  .moreinfo-recovery-title {
+    max-width: none;
+    font-size: clamp(1.9rem, 10vw, 3rem);
+  }
+
+  .moreinfo-recovery-cta {
+    width: 100%;
+  }
+
+  .moreinfo-recovery-image {
+    min-height: 224px;
+    border-radius: 24px;
   }
 }
 
