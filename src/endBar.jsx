@@ -10,9 +10,10 @@ const EndBar = () => {
       <div className="footer-brand">
         <img
           className="footer-brand-logo"
-          src={`${assetBase}.jpg`}
           alt="Muscle Lab Gym crest"
+          src={`${assetBase}muscle.jpg`}
         />
+
         <p className="footer-brand-tagline">
           Muscle Lab Gym. Built For Size, Strength, And Discipline
         </p>

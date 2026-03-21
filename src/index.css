@@ -49,6 +49,24 @@ html {
   scrollbar-width: thin;
 }
 
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(10, 18, 14, 0.9);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3be67b 0%, #1f9e4f 100%);
+  border-radius: 999px;
+  border: 2px solid rgba(10, 18, 14, 0.92);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #54ef90 0%, #24b45a 100%);
+}
+
 body::-webkit-scrollbar {
   width: 12px;
 }
@@ -1035,7 +1053,7 @@ body::after {
   }
 
   .gym-nav-logo {
-    width: 60px;
+    width: 68px;
     border-radius: 14px;
     order: -1;
     flex: 0 0 100%;
@@ -1046,9 +1064,14 @@ body::after {
   .gym-nav-item {
     flex: 1 1 calc(50% - 0.5rem);
     max-width: calc(50% - 0.25rem);
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.72rem;
-    padding: 0.68rem 0.75rem;
+    padding: 0.68rem 0.65rem;
     border-radius: 999px;
+    white-space: nowrap;
     letter-spacing: 0.03em;
     text-align: center;
   }
@@ -1072,9 +1095,7 @@ body::after {
   }
 
   .gym-title::before {
-    width: min(92vw, 340px);
-    height: 154px;
-    top: 48%;
+    content: none;
   }
 
   .socials-container {
