@@ -12,6 +12,7 @@ const EndBar = () => {
           className="footer-brand-logo"
           alt="Muscle Lab Gym crest"
           src={`${assetBase}muscle.jpg`}
+          onClick={() => nav("/")}
         />
 
         <div className="footer-brand-copy">
@@ -24,7 +25,7 @@ const EndBar = () => {
         <section className="footer-column">
           <h2 className="footer-column-title">Contact Us</h2>
           <p className="footer-column-text">
-            Sector 11-A North Karachi, Pakistan
+            Sector 11-A, North Karachi <br /> Phone number: 03132424126
           </p>
         </section>
 
