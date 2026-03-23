@@ -89,7 +89,7 @@ const Home = () => {
         <section className="gym-hero">
           <h1 className="gym-title">
             <img
-              src={`public/baki2.png`}
+              src={`${assetBase}baki2.png`}
               className="cool-pic-baki"
               alt="Baki"
             />
