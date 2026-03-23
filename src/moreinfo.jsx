@@ -6,7 +6,6 @@ import EndBar from "./endBar.jsx";
 const MoreInfo = () => {
   const assetBase = import.meta.env.BASE_URL;
   const showcaseSlides = [
-    `${assetBase}musclelabimages/a.jpg`,
     `${assetBase}musclelabimages/c.jpg`,
     `${assetBase}musclelabimages/d.jpg`,
     `${assetBase}musclelabimages/e.jpg`,
@@ -156,7 +155,10 @@ const MoreInfo = () => {
           </div>
 
           <div className="moreinfo-showcase">
-            <div className="moreinfo-showcase-slider" aria-label="Gym image slider">
+            <div
+              className="moreinfo-showcase-slider"
+              aria-label="Gym image slider"
+            >
               {showcaseSlides.map((slideSrc, index) => (
                 <div className="moreinfo-showcase-slide" key={slideSrc}>
                   <img

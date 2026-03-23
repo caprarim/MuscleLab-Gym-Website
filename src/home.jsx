@@ -88,7 +88,11 @@ const Home = () => {
         ></SideBar>
         <section className="gym-hero">
           <h1 className="gym-title">
-            <img src={`public/baki2.png`} className="cool-pic-baki" alt="Baki" />
+            <img
+              src={`public/baki2.png`}
+              className="cool-pic-baki"
+              alt="Baki"
+            />
             <span className="gym-title-accent">Muscle Lab</span> Gym
           </h1>
         </section>
