@@ -14,8 +14,6 @@ const Memberships = () => {
     nav(`/joinMembership/${plan}`);
   };
 
-  function learnMore() {}
-
   return (
     <>
       <main className="gym-page membership-page">

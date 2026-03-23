@@ -25,7 +25,7 @@ const Home = () => {
         <section
           className="home-entry-modal"
           aria-label="Join Muscle Lab Gym"
-          style={isModalDisplay ? { display: "block" } : { display: "none" }}
+          style={isModalDisplay ? { display: "grid" } : { display: "none" }}
           onClick={removeModalDisplay}
         >
           <div className="home-entry-modal-backdrop" />
@@ -88,11 +88,7 @@ const Home = () => {
         ></SideBar>
         <section className="gym-hero">
           <h1 className="gym-title">
-            <img
-              src={`${assetBase}baki.jpg`}
-              className="cool-pic-baki"
-              alt="Baki"
-            />
+            <img src={`public/baki2.png`} className="cool-pic-baki" alt="Baki" />
             <span className="gym-title-accent">Muscle Lab</span> Gym
           </h1>
         </section>

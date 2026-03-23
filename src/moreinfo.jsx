@@ -5,6 +5,14 @@ import EndBar from "./endBar.jsx";
 
 const MoreInfo = () => {
   const assetBase = import.meta.env.BASE_URL;
+  const showcaseSlides = [
+    `${assetBase}musclelabimages/a.jpg`,
+    `${assetBase}musclelabimages/c.jpg`,
+    `${assetBase}musclelabimages/d.jpg`,
+    `${assetBase}musclelabimages/e.jpg`,
+    `${assetBase}musclelabimages/f.jpg`,
+    `${assetBase}musclelabimages/h.jpg`,
+  ];
   let nav = useNavigate();
 
   return (
@@ -22,7 +30,6 @@ const MoreInfo = () => {
           <div className="moreinfo-hero-image-wrap">
             <img
               src={`${assetBase}musclelabimages/c.jpg`}
-              
               className="moreinfo-hero-image"
               alt="Muscle Lab Gym training floor"
             />
@@ -149,11 +156,17 @@ const MoreInfo = () => {
           </div>
 
           <div className="moreinfo-showcase">
-            <img
-              src={`${assetBase}musclelabimages/h.jpg`}
-              alt="Gym member training"
-              className="moreinfo-showcase-image"
-            />
+            <div className="moreinfo-showcase-slider" aria-label="Gym image slider">
+              {showcaseSlides.map((slideSrc, index) => (
+                <div className="moreinfo-showcase-slide" key={slideSrc}>
+                  <img
+                    src={slideSrc}
+                    alt={`Muscle Lab Gym showcase ${index + 1}`}
+                    className="moreinfo-showcase-image"
+                  />
+                </div>
+              ))}
+            </div>
             <div className="moreinfo-showcase-card">
               <p className="moreinfo-showcase-label">Train with purpose</p>
               <p className="moreinfo-showcase-text">

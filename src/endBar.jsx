@@ -14,9 +14,10 @@ const EndBar = () => {
           src={`${assetBase}muscle.jpg`}
         />
 
-        <p className="footer-brand-tagline">
-          Muscle Lab Gym. Built For Size, Strength, And Discipline
-        </p>
+        <div className="footer-brand-copy">
+          <p className="footer-brand-eyebrow">Muscle Lab Gym</p>
+          <p className="footer-brand-tagline">LARGEST GYM IN NORTH KARACHI</p>
+        </div>
       </div>
 
       <div className="footer-grid">
@@ -35,28 +36,16 @@ const EndBar = () => {
           >
             Membership Plans
           </div>
-          <a className="footer-column-link" href="">
-            Trial Session
-          </a>
-          <a className="footer-column-link" href="">
-            Classes
-          </a>
         </section>
 
         <section className="footer-column">
-          <h2 className="footer-column-title">Performance</h2>
+          <h2 className="footer-column-title">Start Here</h2>
           <div
             className="footer-column-link"
             onClick={() => nav("/memberships")}
           >
             Register
           </div>
-          <a className="footer-column-link" href="">
-            Personal Training
-          </a>
-          <a className="footer-column-link" href="">
-            Nutrition Plan
-          </a>
         </section>
 
         <section className="footer-column">
@@ -64,19 +53,13 @@ const EndBar = () => {
           <a className="footer-column-link" href="https://www.instagram.com/">
             Instagram
           </a>
-          <a className="footer-column-link" href="">
-            YouTube
-          </a>
-          <a className="footer-column-link" href="">
-            Facebook
-          </a>
         </section>
       </div>
 
       <div className="footer-divider" />
 
       <div className="footer-bottom-row">
-        <p className="footer-social-strip">IG FB YT IN</p>
+        <p className="footer-social-strip">North Karachi, Pakistan</p>
         <p className="footer-copyright">
           Copyright © 2026 Muscle Lab Gym. All Rights Reserved.
         </p>

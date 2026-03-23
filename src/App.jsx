@@ -3,9 +3,25 @@ import About from "./about.jsx";
 import MoreInfo from "./moreinfo.jsx";
 import Memberships from "./memberships.jsx";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import MemberShipPlans from "./membershipplans.jsx";
+import MemberShipPlans from "./signUp.jsx";
+import { useEffect, useState } from "react";
+import { supabase } from "./supabase-client.jsx";
+import Payment from "./payment.jsx";
+import SignIn from "./signIn.jsx";
 
 function App() {
+  let [Session, setSession] = useState(null);
+  async function getSession() {
+    let currentSession = await supabase.auth.getSession();
+    let { data } = currentSession;
+    let { session } = data;
+    setSession(session);
+  }
+
+  useEffect(() => {
+    getSession();
+  }, []);
+
   return (
     <>
       <HashRouter>
@@ -19,7 +35,15 @@ function App() {
           ></Route>
           <Route
             path="/joinMembership/:plan"
-            element={<MemberShipPlans></MemberShipPlans>}
+            element={<MemberShipPlans role={Session}></MemberShipPlans>}
+          ></Route>
+          <Route
+            path="/payment"
+            element={<Payment role={Session}></Payment>}
+          ></Route>
+          <Route
+            path="/signin/:plan"
+            element={<SignIn role={Session}></SignIn>}
           ></Route>
         </Routes>
       </HashRouter>
