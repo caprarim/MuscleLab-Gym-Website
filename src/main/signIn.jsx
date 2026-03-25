@@ -86,7 +86,7 @@ const SignIn = ({ role }) => {
     if (error) {
       console.error(error.message);
     }
-    let { data } = await supabase.from("credentials").select("*");
+    let { data } = await supabase.from("ultraEgoPhysiqueCredentials").select("*");
     data?.map((D) => {
       if (email == D.Email && password == D.Password) {
         nav("/payment");

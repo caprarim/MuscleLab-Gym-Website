@@ -48,16 +48,16 @@ const Payment = () => {
 
               <div className="payment-highlight-list">
                 <div className="payment-highlight-item">
-                  <span className="payment-highlight-kicker">Phone</span>
+                  <span className="payment-highlight-kicker">Bank Name</span>
                   <span className="payment-highlight-value">
-                    0329-3179505
+                    Meezan Bank
                   </span>
                 </div>
 
                 <div className="payment-highlight-item">
-                  <span className="payment-highlight-kicker">Instagram</span>
+                  <span className="payment-highlight-kicker">Account Title</span>
                   <span className="payment-highlight-value">
-                    @ultra_egophysique
+                    Muhammad Faizan Yousuf
                   </span>
                 </div>
 
@@ -106,16 +106,16 @@ const Payment = () => {
               <div className="payment-card-glow" />
 
               <div className="payment-card-topline">
-                <span className="payment-bank-badge">Contact Details</span>
-                <span className="payment-mode-chip">Direct Confirmation</span>
+                <span className="payment-bank-badge">Bank Transfer</span>
+                <span className="payment-mode-chip">Online Payment</span>
               </div>
 
               <div className="payment-account-block">
                 <div className="payment-account-heading">
                   <div>
-                    <p className="payment-label">Phone Number</p>
+                    <p className="payment-label">Account Number</p>
                     <p className="payment-value payment-value-account">
-                      0329-3179505
+                      99750112604156
                     </p>
                   </div>
 
@@ -123,21 +123,20 @@ const Payment = () => {
                 </div>
 
                 <p className="payment-account-caption">
-                  Use this number to confirm your plan or ask for support.
+                  Transfer the membership fee to the bank account above and
+                  share the receipt.
                 </p>
               </div>
 
               <div className="payment-account-grid">
                 <div className="payment-mini-card">
-                  <p className="payment-label">Instagram</p>
-                  <p className="payment-value">@ultra_egophysique</p>
+                  <p className="payment-label">Account Title</p>
+                  <p className="payment-value">Muhammad Faizan Yousuf</p>
                 </div>
 
                 <div className="payment-mini-card">
-                  <p className="payment-label">Location</p>
-                  <p className="payment-value">
-                    Plot #A, 906, near Ronaq-e-Sheereni, North Karachi
-                  </p>
+                  <p className="payment-label">Bank Name</p>
+                  <p className="payment-value">Meezan Bank</p>
                 </div>
 
                 <div className="payment-mini-card payment-mini-card-full">
@@ -149,14 +148,7 @@ const Payment = () => {
                 </div>
               </div>
 
-              <div className="payment-support-row">
-                <div className="payment-support-pill">
-                  Strength Special from PKR 2500
-                </div>
-                <div className="payment-support-pill">
-                  Quarterly and yearly plans available
-                </div>
-              </div>
+           
             </article>
 
             <div className="payment-secondary-stack">
@@ -177,7 +169,7 @@ const Payment = () => {
                   <div className="payment-step">
                     <span className="payment-step-number">02</span>
                     <p className="payment-step-text">
-                      Contact the gym on 0329-3179505 or Instagram.
+                      Transfer the fee and share receipt on 0329-3179505.
                     </p>
                   </div>
 

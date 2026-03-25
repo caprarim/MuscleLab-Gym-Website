@@ -35,7 +35,7 @@ const planDetails = {
   },
 };
 
-const MemberShipPlans = () => {
+const MemberShipPlans = ({ role }) => {
   const { plan } = useParams();
   const selectedPlan = planDetails[plan] || {
     title: "Membership Plan",
@@ -163,70 +163,57 @@ const MemberShipPlans = () => {
       } else if (isPassInvalid) {
         passRef.current?.focus();
       }
+      return;
+    }
+    let { data, error: fetchError } = await supabase
+      .from("ultraEgoPhysiqueCredentials")
+      .select("*");
+    if (fetchError) {
+      console.error(fetchError.message);
     }
 
-    if (
-      !isNameInvalid &&
-      !isEmailInvalid &&
-      !isPhoneInvalid &&
-      !isPassInvalid
-    ) {
-      let { error } = await supabase.from("credentials").insert([
-        {
-          Password: password,
-          Name: fullName,
-          Email: email,
-          PhoneNum: tele,
-        },
-      ]);
-      if (error) {
-        console.error(error.message);
+    const userExists = data?.some((D) => D.Email === email);
+
+    if (userExists) {
+      setAlreadyAuthenticated(
+        "You already have an account OR you have a verification message in your email",
+      );
+      return;
+    }
+
+    if (isSignUp === "Sign Up") {
+      let { error: insertError } = await supabase
+        .from("ultraEgoPhysiqueCredentials")
+        .insert([
+          {
+            Password: password,
+            Name: fullName,
+            Email: email,
+            PhoneNum: tele,
+          },
+        ]);
+
+      setModalDisplay(true);
+
+      if (insertError) {
+        console.error(insertError.message);
       }
-    }
 
-    if (
-      isSignUp == "Sign Up" &&
-      !isEmailInvalid &&
-      !isNameInvalid &&
-      !isPassInvalid &&
-      !isPhoneInvalid
-    ) {
-      let { error } = await supabase.auth.signUp({ email, password });
+      let { error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+      });
 
-      if (error) {
-        console.error(error.message);
+      if (signUpError) {
+        console.error(signUpError.message);
       } else {
-        let { error } = await supabase.auth.signInWithPassword({
+        await supabase.auth.signInWithPassword({
           email,
           password,
         });
-        if (error) {
-          console.error(error.message);
-        }
-      }
-    }
-
-    let { data } = await supabase.from("credentials").select("*");
-
-    data?.map((D) => {
-      if (email == D.Email && password == D.Password) {
-        setAlreadyAuthenticated("You already have an account");
-        setModalDisplay(false);
-      }
-
-      if (
-        !isNameInvalid &&
-        !isEmailInvalid &&
-        !isPassInvalid &&
-        !isPhoneInvalid &&
-        alreadyAuthenticated !== "You already have an account" &&
-        password !== D.Password &&
-        email !== D.Email
-      ) {
-        setModalDisplay(true);
         setAlreadyAuthenticated("");
       }
-    });
+    }
   }
 
   return (
