@@ -75,10 +75,13 @@ const EndBar = () => {
             <span className="footer-inline-emoji"><img src="public/ultraego/ig.png" className="igpic"></img></span>
             <span className="ig">Instagram</span>
           </a>
-          <div className="footer-column-link">
+          <a
+            className="footer-column-link"
+            href="https://facebook.com"
+          >
             <span className="footer-inline-emoji">{"\u{1F44D}"}</span>
-            <span>Facebook</span>
-          </div>
+            <span className="fb">Facebook</span>
+          </a>
         </section>
       </div>
     </footer>

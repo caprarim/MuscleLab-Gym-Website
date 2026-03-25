@@ -37,7 +37,7 @@ const MoreInfo = () => {
         ></SideBar>
 
         <section className="moreinfo-hero-block">
-          <h1 className="moreinfo-title">Train Clean. Progress Hard.</h1>
+          <h1 className="moreinfo-title">Move With Intention.</h1>
           <div className="moreinfo-hero-image-wrap">
             <img
               src="public/ultraego/14.PNG"
@@ -45,7 +45,7 @@ const MoreInfo = () => {
               alt="Ultra Ego Physique Gym training floor"
             />
             <div className="moreinfo-hero-overlay">
-              <p className="moreinfo-hero-overlay-text">Built on discipline.</p>
+              <p className="moreinfo-hero-overlay-text">Built on standard.</p>
             </div>
           </div>
         </section>
@@ -82,13 +82,13 @@ const MoreInfo = () => {
 
         <section className="moreinfo-details-grid">
           <div className="moreinfo-details-copy">
-            <p className="moreinfo-eyebrow">Why Ultra EgoPhysique</p>
+            <p className="moreinfo-eyebrow">Why Ultra Ego Physique</p>
             <h2 className="moreinfo-section-title">
-              Clean movement. Better control. Real progression.
+              Sharp form. Real loads. Lasting results.
             </h2>
             <p className="moreinfo-section-text">
-              Every session is built around sharper form, stronger habits, and
-              consistent effort.
+              Every session is structured around execution, not motivation. Show
+              up, move correctly, and let the compound effect do the rest.
             </p>
 
             <div className="moreinfo-benefits-list">
@@ -99,7 +99,7 @@ const MoreInfo = () => {
                 <div>
                   <h3 className="moreinfo-detail-title">Deadlift Standard</h3>
                   <p className="moreinfo-detail-text">
-                    Back straight, core tight, and every rep under control.
+                    Hips hinge, spine neutral, every pull locked and loaded.
                   </p>
                 </div>
               </article>
@@ -111,7 +111,7 @@ const MoreInfo = () => {
                 <div>
                   <h3 className="moreinfo-detail-title">Squat Standard</h3>
                   <p className="moreinfo-detail-text">
-                    Chest up, hips back, and weight grounded through the heels.
+                    Depth achieved, knees tracked, bar path never wasted.
                   </p>
                 </div>
               </article>
@@ -121,9 +121,10 @@ const MoreInfo = () => {
                   03
                 </span>
                 <div>
-                  <h3 className="moreinfo-detail-title">Timings That Work</h3>
+                  <h3 className="moreinfo-detail-title">Flexible Slots</h3>
                   <p className="moreinfo-detail-text">
-                    Morning, ladies-only, and evening slots built for routine.
+                    Morning co-ed, midday ladies-only, and late-evening sessions
+                    — fit your schedule, not the other way around.
                   </p>
                 </div>
               </article>
@@ -133,10 +134,10 @@ const MoreInfo = () => {
                   04
                 </span>
                 <div>
-                  <h3 className="moreinfo-detail-title">Membership Value</h3>
+                  <h3 className="moreinfo-detail-title">Accessible Pricing</h3>
                   <p className="moreinfo-detail-text">
-                    Start at PKR 2,500, go quarterly at PKR 7,000, or train all
-                    year for PKR 25,000.
+                    Monthly from PKR 2,500. Quarterly at PKR 7,000. Annual at
+                    PKR 25,000. No excuses, no friction.
                   </p>
                 </div>
               </article>
@@ -175,9 +176,9 @@ const MoreInfo = () => {
               ))}
             </div>
             <div className="moreinfo-showcase-card">
-              <p className="moreinfo-showcase-label">Be patient.</p>
+              <p className="moreinfo-showcase-label">Commit to the process.</p>
               <p className="moreinfo-showcase-text">
-                Progress comes from steady work, not noise.
+                Strength is earned one rep at a time.
               </p>
               <Link className="moreinfo-showcase-link" to="/memberships">
                 Start Now
@@ -190,11 +191,11 @@ const MoreInfo = () => {
           <div className="moreinfo-recovery-copy">
             <p className="moreinfo-recovery-eyebrow">Mindset</p>
             <h2 className="moreinfo-recovery-title">
-              Be patient. Progress takes time.
+              Consistent effort outlasts intensity.
             </h2>
             <p className="moreinfo-recovery-text">
-              Refined results come from repeated effort, cleaner execution, and
-              patience.
+              Elite physiques aren't built in days. They're built by showing up,
+              executing with precision, and trusting the timeline.
             </p>
             <Link className="moreinfo-recovery-cta" to="/memberships">
               See Plans

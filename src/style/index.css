@@ -3360,24 +3360,34 @@ body::after {
 .moreinfo-benefit-item {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: start;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(213, 166, 240, 0.14);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(213, 166, 240, 0.1);
 }
 
 .moreinfo-benefit-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.45rem;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 240, 0.16),
-    rgba(38, 24, 48, 0.08)
-  );
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-shrink: 0;
+  font-family: "Space Grotesk", "DM Mono", "Outfit", monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #d4a8f8;
+  border-radius: 14px;
+  background: rgba(138, 60, 200, 0.12);
+  border: 1px solid rgba(180, 110, 240, 0.25);
+  box-shadow: 0 0 18px rgba(138, 60, 200, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.moreinfo-benefit-item:hover .moreinfo-benefit-icon {
+  background: rgba(138, 60, 200, 0.22);
+  box-shadow: 0 0 24px rgba(180, 100, 255, 0.2), inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
 .moreinfo-actions {
@@ -6921,14 +6931,25 @@ body::after {
   align-items: center;
   gap: 0.5rem;
 }
-
+.footer-inline-emoji1{
+   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  position: relative;
+  right: 10px;
+}
 .footer-inline-emoji {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95em;
+  font-size: 1.5rem;
   line-height: 1;
+  position: relative;
+
 }
 
 @media (max-width: 700px) {
@@ -7153,6 +7174,213 @@ body::after {
   
   /* HOME FIXES */
   .gym-hero {
+    min-height: auto !important;
+    padding-top: 2rem !important;
+  }
+  /* Prevent hero image from shrinking on mobile */
+  .cool-pic-baki {
+     width: 100% !important;
+     height: auto !important;
+     object-fit: cover !important;
+  }
+  .home-promo {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    padding: 2.5rem 1rem !important;
+  }
+  .home-entry-modal-shell {
+    width: 95% !important;
+    padding: 2rem 1.5rem !important;
+  }
+  
+  /* ABOUT FIXES */
+  .about-v2-feature-row, .about-v2-detail-row {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .about-v2-hero {
+    height: 40vh !important;
+  }
+  .about-v2-main {
+    margin-top: -2rem !important;
+    padding: 2.5rem 1.5rem !important;
+    clip-path: none !important;
+    border-radius: 28px 28px 0 0 !important;
+    width: 100% !important;
+  }
+
+  /* MORE INFO FIXES */
+  .moreinfo-details-grid, .moreinfo-recovery-section {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .moreinfo-specialties-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  .moreinfo-hero-image-wrap {
+     aspect-ratio: 16/11 !important;
+  }
+  .moreinfo-showcase-slider {
+     height: 380px !important;
+  }
+  
+  /* MEMBERSHIPS FIXES */
+  .membership-showcase-grid-memberships, 
+  .membership-showcase-grid-packages, 
+  .membership-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .membership-plan-card {
+    padding: 1.8rem 1.5rem !important;
+  }
+  .membership-modal {
+    padding: 2rem 1.2rem !important;
+    width: 100% !important;
+  }
+
+  /* FOOTER REWORK */
+  .socials-container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    text-align: center !important;
+  }
+  .footer-brand {
+    justify-content: center !important;
+  }
+  .footer-column {
+    align-items: center !important;
+  }
+  .footer-contact-block {
+    justify-items: center !important;
+    align-items: center !important;
+  }
+  .footer-bottom-row {
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+  }
+  /* Footer User Custom Icon Fixes */
+  .igpic, .fbpic {
+    right: auto !important;
+    position: relative !important;
+    margin-right: 8px !important;
+  }
+  .ig, .fb {
+    right: auto !important;
+    position: static !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .membership-showcase-grid-packages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .membership-showcase-grid-memberships,
+  .membership-showcase-grid-packages {
+    grid-template-columns: 1fr;
+  }
+}
+
+.igpic{
+  height: 50px;
+  width: 50px;
+  position: relative;
+  right: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.ig{
+  position: relative;
+  right: 35px;
+}
+
+.footer-contact-phone,
+.footer-contact-email,
+.anchor-location {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-phone:hover,
+.footer-contact-email:hover,
+.anchor-location:hover {
+  color: #cb8cf0 !important;
+}
+
+
+/* ============================================================
+   PREMIUM MOBILE OPTIMIZATIONS (Max-Width: 768px & 480px)
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  /* GLOBAL FIXES & TYPOGRAPHY */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  .gym-page {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* FLUID TYPOGRAPHY OVERRIDES */
+  .gym-title, .about-v2-title, .moreinfo-title, .membership-modal-title, .home-entry-modal-title {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+  }
+  .home-promo-title, .moreinfo-section-title, .moreinfo-recovery-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
+  }
+
+  /* HEADER & SIDEBAR REWORK */
+  .gym-header.unified-sidebar {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 1.5rem 0.5rem !important;
+    width: 100vw !important;
+  }
+  .gym-nav.unified-sidebar-nav {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+  }
+  .unified-sidebar-brand {
+    order: -1;
+    margin-bottom: 0px !important;
+    width: 100%;
+    margin-right:0px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .gym-nav-logo.unified-sidebar-logo {
+     width: 70px !important;
+  }
+  .unified-sidebar-group {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    width: 100% !important;
+  }
+  .gym-nav-item.unified-sidebar-item {
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+  
+  /* HOME FIXES */
+  .gym-hero {
     min-height: 55vh !important;
     padding-top: 2rem !important;
   }
@@ -7269,4 +7497,72 @@ body::after {
      font-size: 0.85rem !important;
      padding: 0.4rem 0.6rem !important;
   }
+}
+
+/* ============================================================
+   GLOBAL TYPOGRAPHY POLISH & SIDEBAR-TO-CONTENT SPACING
+   ============================================================ */
+
+/* Unified sidebar-to-first-content margin across ALL pages */
+.home-page > * + *,
+.about-page > * + *,
+.moreinfo-page > * + *,
+.membership-page > * + * {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Eyebrow / label text across all components */
+.moreinfo-eyebrow,
+.moreinfo-recovery-eyebrow,
+.moreinfo-showcase-label,
+.about-v2-eyebrow {
+  font-family: "Space Grotesk", "Outfit", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Premium section title hierarchy */
+.moreinfo-section-title,
+.moreinfo-recovery-title,
+.about-v2-title {
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+/* Detail title — sub-heading inside benefit items */
+.moreinfo-detail-title {
+  font-family: "Outfit", "Space Grotesk", sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #f0d8ff;
+  margin: 0 0 0.3rem;
+}
+
+/* Detail text — softer, more readable */
+.moreinfo-detail-text {
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
+  line-height: 1.7;
+  color: rgba(225, 210, 240, 0.85);
+  margin: 0;
+}
+
+/* Specialty titles – small caps weight bump */
+.moreinfo-specialty-title {
+  font-family: "Space Grotesk", "Outfit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Showcase card text bump */
+.moreinfo-showcase-text {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Showcase card label */
+.moreinfo-showcase-label {
+  font-weight: 700;
 }
