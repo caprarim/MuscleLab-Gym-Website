@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const EndBar = () => {
   const nav = useNavigate();
+  const assetBase = import.meta.env.BASE_URL;
 
   return (
     <footer className="socials-container">
@@ -12,7 +13,8 @@ const EndBar = () => {
           <div className="footer-contact-block">
             <p className="footer-contact-address">
               <span className="footer-inline-emoji">{"\u{1F4CD}"}</span>
-              <a className="anchor-location"
+              <a
+                className="anchor-location"
                 href="https://www.google.com/maps/place/Ultra+Ego+Physique+Gym/@24.9781933,67.0630618,17z/data=!4m15!1m8!3m7!1s0x3eb341ce24019e9b:0xd04e65d74aaf9142!2sUltra+Ego+Physique+Gym!8m2!3d24.9781933!4d67.0656367!10e1!16s%2Fg%2F11mlzvyr9c!3m5!1s0x3eb341ce24019e9b:0xd04e65d74aaf9142!8m2!3d24.9781933!4d67.0656367!16s%2Fg%2F11mlzvyr9c?hl=en&entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
               >
@@ -72,16 +74,15 @@ const EndBar = () => {
             className="footer-column-link"
             href="https://www.instagram.com/ultra_egophysique/"
           >
-            <span className="footer-inline-emoji"><img src="public/ultraego/ig.png" className="igpic"></img></span>
+            <span className="footer-inline-emoji">
+              <img src={`${assetBase}ultraego/ig.png`} className="igpic"></img>
+            </span>
             <span className="ig">Instagram</span>
           </a>
-          <a
-            className="footer-column-link"
-            href="https://facebook.com"
-          >
-            <span className="footer-inline-emoji">{"\u{1F44D}"}</span>
-            <span className="fb">Facebook</span>
-          </a>
+          <div className="footer-column-link">
+            <span className="footer-inline-emoji">{"\u{1F525}"}</span>
+            <span>Facebook</span>
+          </div>
         </section>
       </div>
     </footer>

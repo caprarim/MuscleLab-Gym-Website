@@ -663,7 +663,7 @@ body::after {
   display: inline-block;
   margin-right: 0.26em;
   font-weight: 800;
-  color: rgba(156, 61, 255, 0.7);
+  color: hsla(269, 96%, 58%, 0.7);
   text-shadow: 0 0 18px rgba(140, 43, 224, 0.35);
   letter-spacing: 0.055em;
   position: relative;
@@ -878,6 +878,119 @@ body::after {
   object-fit: cover;
   object-position: center 44%;
   display: block;
+}
+
+.home-faq {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: clamp(1rem, 2.2vw, 1.7rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.home-faq-header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.home-faq-kicker {
+  margin: 0;
+  font-family: "Outfit", "Sora", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d99bff;
+}
+
+.home-faq-title {
+  margin: 0;
+  font-family: "Outfit", "Sora", sans-serif;
+  font-size: clamp(1.9rem, 3.8vw, 3.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #f7f2ff;
+}
+
+.home-faq-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.home-faq-item {
+  border: 1px solid rgba(214, 171, 255, 0.16);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.home-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 0;
+  background: transparent;
+  color: #f6effc;
+  font-family: "Outfit", "Sora", sans-serif;
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.home-faq-question:hover {
+  color: #dca7ff;
+  transform: translateX(2px);
+}
+
+.home-faq-question-text {
+  min-width: 0;
+}
+
+.home-faq-icon {
+  flex: 0 0 auto;
+  color: #c88bff;
+  font-size: 1rem;
+  line-height: 1;
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+.home-faq-item.is-open .home-faq-icon {
+  color: #ffffff;
+}
+
+.home-faq-answer-wrap {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1.1rem;
+  overflow: hidden;
+  transition:
+    max-height 280ms ease,
+    opacity 240ms ease,
+    padding 280ms ease;
+}
+
+.home-faq-answer-wrap[data-open="true"] {
+  max-height: 180px;
+  opacity: 1;
+  padding: 0 1.1rem 1rem;
+}
+
+.home-faq-answer {
+  margin: 0;
+  color: rgba(235, 225, 245, 0.92);
+  font-family: "Outfit", "Sora", sans-serif;
+  font-size: clamp(0.92rem, 1.12vw, 1rem);
+  line-height: 1.75;
 }
 
 .socials-container::before {
@@ -1315,21 +1428,6 @@ body::after {
   .footer-copyright {
     text-align: left;
   }
-
-  .cool-pic-baki {
-    width: min(92vw, 340px);
-    height: 500px;
-    left: 50%;
-    top: 20%;
-    bottom: auto;
-    transform: translate(-10%, -50%);
-
-    border-radius: 22px;
-  }
-
-  .cool-pic-baki:hover {
-    transform: translate(-50%, -50%) scale(1.01);
-  }
 }
 
 .cool-pic-baki {
@@ -1339,28 +1437,8 @@ body::after {
   left: 50%;
   top: 42%;
   transform: translate(-50%, -50%);
-  border-radius: 28px;
-  opacity: 1;
   object-fit: cover;
-
-  border: 1px solid rgba(172, 143, 198, 0.22);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
-  filter: saturate(0.82) contrast(1.06) brightness(0.9);
-
-  transition:
-    transform 240ms ease,
-    opacity 240ms ease,
-    box-shadow 240ms ease;
   z-index: -2;
-}
-
-.cool-pic-baki:hover {
-  opacity: 1;
-}
-
-.socials-container .cool-pic-baki {
-  width: 25%;
-  height: auto;
 }
 
 .membership-page {
@@ -2753,15 +2831,6 @@ body::after {
     line-height: 1.45;
   }
 
-  .cool-pic-baki {
-    width: min(100%, 350px);
-    height: 176px;
-    top: 50%;
-    border-radius: 22px;
-    border-color: rgba(172, 143, 198, 0.16);
-    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
-  }
-
   .home-promo,
   .membership-page .membership-modal,
   .membership-form-shell,
@@ -2914,12 +2983,6 @@ body::after {
   .gym-title {
     font-size: clamp(1.85rem, 11.5vw, 2.6rem);
     width: min(100%, 320px);
-  }
-
-  .cool-pic-baki {
-    width: min(100%, 320px);
-    height: 164px;
-    border-radius: 20px;
   }
 
   .membership-plan-timing-list li {
@@ -3381,13 +3444,19 @@ body::after {
   border-radius: 14px;
   background: rgba(138, 60, 200, 0.12);
   border: 1px solid rgba(180, 110, 240, 0.25);
-  box-shadow: 0 0 18px rgba(138, 60, 200, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
-  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow:
+    0 0 18px rgba(138, 60, 200, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
 }
 
 .moreinfo-benefit-item:hover .moreinfo-benefit-icon {
   background: rgba(138, 60, 200, 0.22);
-  box-shadow: 0 0 24px rgba(180, 100, 255, 0.2), inset 0 1px 0 rgba(255,255,255,0.07);
+  box-shadow:
+    0 0 24px rgba(180, 100, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .moreinfo-actions {
@@ -4182,11 +4251,6 @@ body::after {
   letter-spacing: 0.22em;
 }
 
-.cool-pic-baki {
-  opacity: 0.28;
-  filter: saturate(0.7) contrast(0.96) brightness(0.78);
-}
-
 .home-promo {
   min-height: 0;
   padding: clamp(1.5rem, 3vw, 2.4rem);
@@ -4670,15 +4734,6 @@ body::after {
   );
 }
 
-.cool-pic-baki {
-  width: clamp(640px, 92vw, 1280px);
-  height: clamp(250px, 38vw, 400px);
-  top: 50%;
-  opacity: 0.4;
-  object-position: center 34%;
-  filter: saturate(0.78) contrast(1) brightness(0.72);
-}
-
 .moreinfo-recovery-section {
   align-items: stretch;
 }
@@ -4727,11 +4782,6 @@ body::after {
 }
 
 @media (max-width: 980px) {
-  .cool-pic-baki {
-    width: clamp(520px, 120vw, 920px);
-    height: clamp(220px, 46vw, 320px);
-  }
-
   .moreinfo-recovery-media,
   .moreinfo-recovery-image {
     min-height: 420px;
@@ -4745,22 +4795,6 @@ body::after {
 @media (max-width: 700px) {
   .gym-title {
     min-height: 200px;
-  }
-
-  .cool-pic-baki {
-    width: min(148vw, 760px);
-    height: 240px;
-    top: 52%;
-  }
-
-  .gym-hero .cool-pic-baki {
-    object-position: center 46%;
-  }
-
-  @media (max-width: 700px) {
-    .gym-hero .cool-pic-baki {
-      object-position: center 40%;
-    }
   }
 
   .payment-page {
@@ -5962,15 +5996,6 @@ body::after {
     box-shadow: none;
   }
 
-  .home-page .gym-hero .cool-pic-baki {
-    top: 56%;
-    height: 235px;
-    object-position: center 24%;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
   .home-page .unified-sidebar-nav .unified-sidebar-item {
     width: 100%;
     min-width: 0;
@@ -6048,13 +6073,6 @@ body::after {
   .home-page .gym-title {
     width: min(100%, 390px);
     padding-top: 0.35rem;
-  }
-
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(112%, 430px);
-    height: 250px;
-    top: 58%;
-    object-position: center 22%;
   }
 
   .home-entry-modal {
@@ -6144,13 +6162,6 @@ body::after {
 
   .home-page .unified-sidebar-nav .unified-sidebar-logo {
     width: 84px;
-  }
-
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(116%, 440px);
-    height: 260px;
-    top: 59%;
-    object-position: center 20%;
   }
 
   .home-entry-modal {
@@ -6349,14 +6360,6 @@ body::after {
     padding: 0.15rem 0 0.2rem;
   }
 
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(132%, 500px);
-    height: 250px;
-    top: 58%;
-    object-position: center 44%;
-    transform: translate(-50%, -50%);
-  }
-
   .existing-account-modal-inner {
     width: min(440px, calc(100% - 1.2rem));
   }
@@ -6379,13 +6382,6 @@ body::after {
 
   .home-page .gym-title {
     width: min(100%, 400px);
-  }
-
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(138%, 520px);
-    height: 260px;
-    top: 59%;
-    object-position: center 46%;
   }
 
   .existing-account-modal {
@@ -6568,13 +6564,6 @@ body::after {
   .home-page > .unified-sidebar + * {
     margin-top: 1.2rem;
   }
-
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(160%, 620px);
-    height: 320px;
-    top: 40%;
-    object-position: center 42%;
-  }
 }
 
 @media (max-width: 640px) {
@@ -6586,13 +6575,6 @@ body::after {
 
   .home-page > .unified-sidebar + * {
     margin-top: 1.1rem;
-  }
-
-  .home-page .gym-hero .cool-pic-baki {
-    width: min(166%, 640px);
-    height: 335px;
-    top: 69%;
-    object-position: center 42%;
   }
 }
 
@@ -6727,10 +6709,6 @@ body::after {
   }
 }
 
-.home-page .gym-hero .cool-pic-baki {
-  object-position: center 57%;
-}
-
 /* Final polygon shape refinement */
 .unified-sidebar-nav {
   position: relative;
@@ -6776,11 +6754,6 @@ body::after {
     0 82%,
     0 18%
   );
-}
-
-.cool-pic-baki {
-  border-radius: 0;
-  clip-path: polygon(5% 0, 100% 0, 100% 84%, 95% 100%, 0 100%, 0 16%);
 }
 
 .about-v2-hero,
@@ -6850,10 +6823,6 @@ body::after {
       0 100%,
       0 18px
     );
-  }
-
-  .cool-pic-baki {
-    clip-path: polygon(4% 0, 100% 0, 100% 88%, 96% 100%, 0 100%, 0 14%);
   }
 }
 
@@ -6931,8 +6900,8 @@ body::after {
   align-items: center;
   gap: 0.5rem;
 }
-.footer-inline-emoji1{
-   flex: 0 0 auto;
+.footer-inline-emoji1 {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -6949,7 +6918,6 @@ body::after {
   font-size: 1.5rem;
   line-height: 1;
   position: relative;
-
 }
 
 @media (max-width: 700px) {
@@ -7077,7 +7045,284 @@ body::after {
   }
 }
 
-.igpic{
+@media screen and (max-width: 700px) {
+  .gym-header.unified-sidebar,
+  .home-page .gym-header.unified-sidebar,
+  .about-page .gym-header.unified-sidebar,
+  .moreinfo-page .gym-header.unified-sidebar,
+  .payment-page .gym-header.unified-sidebar {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 0.35rem 0.35rem 0 !important;
+    min-height: auto !important;
+  }
+
+  .gym-nav.unified-sidebar-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding: 0.4rem 0.4rem 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .unified-sidebar-group {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .unified-sidebar-brand {
+    width: 100% !important;
+    justify-content: center !important;
+    order: -1 !important;
+    margin: 0 0 0.1rem !important;
+  }
+
+  .gym-nav-logo.unified-sidebar-logo {
+    width: 72px !important;
+  }
+
+  .unified-sidebar-nav .unified-sidebar-item {
+    flex: 1 1 calc(50% - 0.4rem) !important;
+    max-width: calc(50% - 0.2rem) !important;
+    min-height: 42px !important;
+    padding: 0.5rem 0.35rem !important;
+    font-size: 0.72rem !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .home-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem 0.45rem !important;
+    align-items: center !important;
+  }
+
+  .home-page .unified-sidebar-group {
+    display: contents !important;
+  }
+
+  .home-page .unified-sidebar-brand {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  .home-page .gym-hero,
+  .about-page .gym-hero,
+  .moreinfo-page .gym-hero,
+  .payment-page .gym-hero {
+    width: calc(100% - 0.4rem) !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .home-page > .unified-sidebar + *,
+  .about-page > .unified-sidebar + *,
+  .moreinfo-page > .unified-sidebar + *,
+  .payment-page > .unified-sidebar + * {
+    margin-top: 0.35rem !important;
+  }
+
+  .home-page > * + *,
+  .about-page > * + *,
+  .moreinfo-page > * + *,
+  .payment-page > * + * {
+    margin-top: 0.95rem !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-entry-modal-shell {
+    width: min(100vw - 0.5rem, 600px) !important;
+    padding: 1rem 0.9rem 0.95rem !important;
+    background:
+      linear-gradient(145deg, rgba(18, 12, 22, 0.96), rgba(14, 10, 17, 0.94)),
+      linear-gradient(180deg, rgba(170, 88, 241, 0.08), rgba(5, 10, 12, 0.08)),
+      url("../assets/b.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .home-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav,
+  .about-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav,
+  .moreinfo-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav,
+  .payment-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav {
+    padding: 0.35rem 0.45rem 0.45rem !important;
+  }
+
+  .home-page .unified-sidebar-brand,
+  .about-page .unified-sidebar-brand,
+  .moreinfo-page .unified-sidebar-brand,
+  .payment-page .unified-sidebar-brand {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    margin: 0 0 0.1rem !important;
+  }
+
+  .gym-nav-logo.unified-sidebar-logo {
+    width: 58px !important;
+    border-radius: 16px !important;
+    clip-path: none !important;
+  }
+
+  .unified-sidebar-nav .unified-sidebar-logo {
+    width: 58px !important;
+    border-radius: 16px !important;
+    clip-path: none !important;
+  }
+
+  .unified-sidebar-nav .unified-sidebar-item {
+    flex: 1 1 calc(50% - 0.4rem) !important;
+    max-width: calc(50% - 0.2rem) !important;
+    padding: 0.45rem 0.35rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .home-page .gym-hero {
+    width: calc(100% - 0.15rem) !important;
+    margin-top: 0.1rem !important;
+  }
+
+  .home-page .gym-title {
+    width: min(100%, 330px) !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-page .gym-header.unified-sidebar {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+  }
+
+  .home-page .gym-header.unified-sidebar .gym-nav.unified-sidebar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    padding: 0.45rem 0.5rem 0.55rem !important;
+  }
+
+  .home-page .unified-sidebar-group {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+  }
+
+  .home-page .unified-sidebar-brand {
+    grid-column: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .home-page .gym-nav-logo.unified-sidebar-logo {
+    width: 60px !important;
+    border-radius: 16px !important;
+    clip-path: none !important;
+  }
+
+  .home-page .unified-sidebar-nav .unified-sidebar-item {
+    flex: 1 1 calc(50% - 0.45rem) !important;
+    max-width: calc(50% - 0.25rem) !important;
+    padding: 0.45rem 0.35rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .home-page > * + * {
+    margin-top: 0.25rem !important;
+  }
+
+  .home-page .gym-hero {
+    min-height: 0 !important;
+    margin-top: 0 !important;
+    padding: 0.05rem 0 0 !important;
+  }
+
+  .home-page .gym-title {
+    width: min(100%, 290px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(1.55rem, 8.6vw, 2.15rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.01em !important;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  .home-page .gym-title-accent {
+    display: inline !important;
+    margin-right: 0.12em !important;
+  }
+
+  .home-page .gym-title::before {
+    width: min(90vw, 290px) !important;
+    height: clamp(82px, 27vw, 140px) !important;
+    top: 50% !important;
+  }
+
+  .home-page .cool-pic-baki {
+    width: min(90vw, 290px) !important;
+    height: clamp(82px, 27vw, 140px) !important;
+    top: 41% !important;
+  }
+
+  .home-page .home-promo {
+    margin-top: 0.1rem !important;
+  }
+
+  .home-page .home-faq {
+    margin-top: 0.2rem !important;
+  }
+
+  .home-page .socials-container {
+    margin-top: 0.2rem !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .home-page .gym-hero {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .home-page .gym-title {
+    width: min(100%, 220px) !important;
+    font-size: clamp(1rem, 5.2vw, 1.45rem) !important;
+    line-height: 0.92 !important;
+    letter-spacing: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  .home-page .gym-title-accent {
+    display: inline !important;
+    margin-right: 0.08em !important;
+  }
+
+  .home-page .gym-title::before {
+    width: min(88vw, 220px) !important;
+    height: clamp(72px, 24vw, 120px) !important;
+  }
+
+  .home-page .cool-pic-baki {
+    width: min(88vw, 220px) !important;
+    height: clamp(72px, 24vw, 120px) !important;
+    top: 40% !important;
+  }
+}
+
+.igpic {
   height: 50px;
   width: 50px;
   position: relative;
@@ -7086,7 +7331,7 @@ body::after {
   margin: 0px;
 }
 
-.ig{
+.ig {
   position: relative;
   right: 35px;
 }
@@ -7105,8 +7350,7 @@ body::after {
   color: #cb8cf0 !important;
 }
 
-
-.ig{
+.ig {
   position: relative;
   right: 35px;
 }
@@ -7116,7 +7360,8 @@ body::after {
    ============================================================ */
 @media screen and (max-width: 768px) {
   /* GLOBAL FIXES & TYPOGRAPHY */
-  html, body {
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100% !important;
   }
@@ -7125,14 +7370,20 @@ body::after {
     padding-right: 1rem !important;
     overflow-x: hidden !important;
   }
-  
+
   /* FLUID TYPOGRAPHY OVERRIDES */
-  .gym-title, .about-v2-title, .moreinfo-title, .membership-modal-title, .home-entry-modal-title {
+  .gym-title,
+  .about-v2-title,
+  .moreinfo-title,
+  .membership-modal-title,
+  .home-entry-modal-title {
     font-size: clamp(2rem, 8vw, 2.5rem) !important;
     line-height: 1.1 !important;
     white-space: normal !important;
   }
-  .home-promo-title, .moreinfo-section-title, .moreinfo-recovery-title {
+  .home-promo-title,
+  .moreinfo-section-title,
+  .moreinfo-recovery-title {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
   }
 
@@ -7152,13 +7403,13 @@ body::after {
     order: -1;
     margin-bottom: 0px !important;
     width: 100%;
-    margin-right:0px !important;
+    margin-right: 0px !important;
     text-align: center;
     display: flex;
     justify-content: center;
   }
   .gym-nav-logo.unified-sidebar-logo {
-     width: 70px !important;
+    width: 70px !important;
   }
   .unified-sidebar-group {
     flex-direction: row !important;
@@ -7171,17 +7422,11 @@ body::after {
     font-size: 0.95rem !important;
     padding: 0.5rem 0.8rem !important;
   }
-  
+
   /* HOME FIXES */
   .gym-hero {
     min-height: auto !important;
     padding-top: 2rem !important;
-  }
-  /* Prevent hero image from shrinking on mobile */
-  .cool-pic-baki {
-     width: 100% !important;
-     height: auto !important;
-     object-fit: cover !important;
   }
   .home-promo {
     grid-template-columns: 1fr !important;
@@ -7192,9 +7437,10 @@ body::after {
     width: 95% !important;
     padding: 2rem 1.5rem !important;
   }
-  
+
   /* ABOUT FIXES */
-  .about-v2-feature-row, .about-v2-detail-row {
+  .about-v2-feature-row,
+  .about-v2-detail-row {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
@@ -7210,7 +7456,8 @@ body::after {
   }
 
   /* MORE INFO FIXES */
-  .moreinfo-details-grid, .moreinfo-recovery-section {
+  .moreinfo-details-grid,
+  .moreinfo-recovery-section {
     grid-template-columns: 1fr !important;
     gap: 2.5rem !important;
   }
@@ -7219,15 +7466,15 @@ body::after {
     gap: 1.5rem !important;
   }
   .moreinfo-hero-image-wrap {
-     aspect-ratio: 16/11 !important;
+    aspect-ratio: 16/11 !important;
   }
   .moreinfo-showcase-slider {
-     height: 380px !important;
+    height: 380px !important;
   }
-  
+
   /* MEMBERSHIPS FIXES */
-  .membership-showcase-grid-memberships, 
-  .membership-showcase-grid-packages, 
+  .membership-showcase-grid-memberships,
+  .membership-showcase-grid-packages,
   .membership-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
@@ -7265,12 +7512,8 @@ body::after {
     gap: 1.2rem !important;
   }
   /* Footer User Custom Icon Fixes */
-  .igpic, .fbpic {
-    right: auto !important;
-    position: relative !important;
-    margin-right: 8px !important;
-  }
-  .ig, .fb {
+  .igpic,
+  .ig {
     right: auto !important;
     position: static !important;
   }
@@ -7289,7 +7532,7 @@ body::after {
   }
 }
 
-.igpic{
+.igpic {
   height: 50px;
   width: 50px;
   position: relative;
@@ -7298,7 +7541,7 @@ body::after {
   margin: 0px;
 }
 
-.ig{
+.ig {
   position: relative;
   right: 35px;
 }
@@ -7317,13 +7560,13 @@ body::after {
   color: #cb8cf0 !important;
 }
 
-
 /* ============================================================
    PREMIUM MOBILE OPTIMIZATIONS (Max-Width: 768px & 480px)
    ============================================================ */
 @media screen and (max-width: 768px) {
   /* GLOBAL FIXES & TYPOGRAPHY */
-  html, body {
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100% !important;
   }
@@ -7332,14 +7575,20 @@ body::after {
     padding-right: 1rem !important;
     overflow-x: hidden !important;
   }
-  
+
   /* FLUID TYPOGRAPHY OVERRIDES */
-  .gym-title, .about-v2-title, .moreinfo-title, .membership-modal-title, .home-entry-modal-title {
+  .gym-title,
+  .about-v2-title,
+  .moreinfo-title,
+  .membership-modal-title,
+  .home-entry-modal-title {
     font-size: clamp(2rem, 8vw, 2.5rem) !important;
     line-height: 1.1 !important;
     white-space: normal !important;
   }
-  .home-promo-title, .moreinfo-section-title, .moreinfo-recovery-title {
+  .home-promo-title,
+  .moreinfo-section-title,
+  .moreinfo-recovery-title {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
   }
 
@@ -7359,13 +7608,13 @@ body::after {
     order: -1;
     margin-bottom: 0px !important;
     width: 100%;
-    margin-right:0px !important;
+    margin-right: 0px !important;
     text-align: center;
     display: flex;
     justify-content: center;
   }
   .gym-nav-logo.unified-sidebar-logo {
-     width: 70px !important;
+    width: 70px !important;
   }
   .unified-sidebar-group {
     flex-direction: row !important;
@@ -7378,15 +7627,11 @@ body::after {
     font-size: 0.95rem !important;
     padding: 0.5rem 0.8rem !important;
   }
-  
+
   /* HOME FIXES */
   .gym-hero {
     min-height: 55vh !important;
     padding-top: 2rem !important;
-  }
-  .cool-pic-baki {
-     width: 100px !important;
-     height: 100px !important;
   }
   .home-promo {
     grid-template-columns: 1fr !important;
@@ -7397,9 +7642,10 @@ body::after {
     width: 95% !important;
     padding: 2rem 1.5rem !important;
   }
-  
+
   /* ABOUT FIXES */
-  .about-v2-feature-row, .about-v2-detail-row {
+  .about-v2-feature-row,
+  .about-v2-detail-row {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
@@ -7415,7 +7661,8 @@ body::after {
   }
 
   /* MORE INFO FIXES */
-  .moreinfo-details-grid, .moreinfo-recovery-section {
+  .moreinfo-details-grid,
+  .moreinfo-recovery-section {
     grid-template-columns: 1fr !important;
     gap: 2.5rem !important;
   }
@@ -7424,15 +7671,15 @@ body::after {
     gap: 1.5rem !important;
   }
   .moreinfo-hero-image-wrap {
-     aspect-ratio: 16/11 !important;
+    aspect-ratio: 16/11 !important;
   }
   .moreinfo-showcase-slider {
-     height: 380px !important;
+    height: 380px !important;
   }
-  
+
   /* MEMBERSHIPS FIXES */
-  .membership-showcase-grid-memberships, 
-  .membership-showcase-grid-packages, 
+  .membership-showcase-grid-memberships,
+  .membership-showcase-grid-packages,
   .membership-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
@@ -7466,44 +7713,43 @@ body::after {
     align-items: center !important;
   }
   .footer-bottom-row {
-     flex-direction: column !important;
-     gap: 1.2rem !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
   }
   /* Footer User Custom Icon Fixes */
-  .igpic, .fbpic {
-     right: auto !important;
-     position: relative !important;
-     margin-right: 8px !important;
+  .igpic {
+    right: auto !important;
+    position: relative !important;
+    margin-right: 8px !important;
   }
-  .ig, .fb {
-     right: auto !important;
-     position: static !important;
+  .ig {
+    right: auto !important;
+    position: static !important;
   }
 }
 
-/* SMALLER MOBILE TWEAKS (Max-Width: 480px) */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 440px) {
   .moreinfo-specialties-strip {
-      grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr !important;
   }
+
   .gym-title {
-     font-size: 2.1rem !important;
+    position: relative;
+    bottom: 50px;
   }
+
   .gym-title-accent {
-     display: block !important;
-     margin-bottom: 0.5rem !important;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 2rem;
+    padding-top: 20px;
   }
   .gym-nav-item.unified-sidebar-item {
-     font-size: 0.85rem !important;
-     padding: 0.4rem 0.6rem !important;
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.6rem !important;
   }
 }
 
-/* ============================================================
-   GLOBAL TYPOGRAPHY POLISH & SIDEBAR-TO-CONTENT SPACING
-   ============================================================ */
-
-/* Unified sidebar-to-first-content margin across ALL pages */
 .home-page > * + *,
 .about-page > * + *,
 .moreinfo-page > * + *,
@@ -7565,4 +7811,156 @@ body::after {
 /* Showcase card label */
 .moreinfo-showcase-label {
   font-weight: 700;
+}
+
+.home-page > * {
+  opacity: 0;
+  transform: translateY(-100px);
+  filter: blur(1px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+  will-change: transform, filter;
+}
+
+.home-page > *.show {
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion) {
+  .home-page > * {
+    transition: none;
+  }
+}
+
+.about-page > * {
+  opacity: 0;
+  transform: translateY(-100px);
+  filter: blur(1px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+  will-change: transform, filter;
+}
+
+.about-page > *.show {
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+}
+
+.membership-page > * {
+  opacity: 0;
+  transform: translateY(-100px);
+  filter: blur(1px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+  will-change: transform, filter;
+}
+
+.membership-page > *.show {
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+}
+
+.moreinfo-page > * {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(1px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms ease,
+    filter 800ms ease;
+  will-change: transform, filter, opacity;
+}
+
+.moreinfo-page > *.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+@media screen and (min-width: 701px) {
+  .home-page .gym-hero {
+    min-height: auto !important;
+    margin-top: clamp(1.75rem, 4vh, 2.75rem) !important;
+    padding: clamp(1.5rem, 3vw, 2.4rem) 0 clamp(2.5rem, 4vw, 3.4rem)
+      !important;
+  }
+
+  .home-page .gym-title {
+    width: min(100%, 1180px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(3.35rem, 4.9vw, 5.3rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .home-page .gym-title::before {
+    width: clamp(320px, 54vw, 900px) !important;
+    height: clamp(120px, 20vw, 230px) !important;
+  }
+
+  .home-page .cool-pic-baki {
+    width: clamp(320px, 54vw, 900px) !important;
+    height: clamp(120px, 20vw, 230px) !important;
+  }
+
+  .home-page .gym-title::after {
+    margin-top: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-page > * + * {
+    margin-top: 0.4rem !important;
+  }
+
+  .home-page > .unified-sidebar + * {
+    margin-top: 0.15rem !important;
+  }
+
+  .home-page .gym-hero {
+    min-height: 0 !important;
+    margin-top: 0 !important;
+    padding: 0.1rem 0 0 !important;
+  }
+
+  .home-page .gym-title {
+    width: min(100%, 330px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: clamp(1.95rem, 11vw, 2.7rem) !important;
+    line-height: 0.94 !important;
+  }
+
+  .home-page .gym-title::before {
+    width: min(92vw, 330px) !important;
+    height: clamp(92px, 30vw, 170px) !important;
+  }
+
+  .home-page .cool-pic-baki {
+    width: min(92vw, 330px) !important;
+    height: clamp(92px, 30vw, 170px) !important;
+    top: 41% !important;
+  }
+
+  .home-page .home-promo {
+    margin-top: 0.2rem !important;
+  }
+
+  .home-page .home-faq {
+    padding-top: 0.5rem !important;
+  }
+
+  .home-page .socials-container {
+    margin-top: 0.35rem !important;
+  }
 }

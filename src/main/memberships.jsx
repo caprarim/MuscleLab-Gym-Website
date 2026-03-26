@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./sidebar.jsx";
 import { useNavigate } from "react-router-dom";
 import EndBar from "./endBar.jsx";
+
+const assetBase = import.meta.env.BASE_URL;
 
 const timings = [
   {
@@ -17,7 +19,7 @@ const timings = [
 const memberships = [
   {
     slug: "Strength-Special",
-    image: "public/ultraego/7.PNG",
+    image: `${assetBase}ultraego/7.PNG`,
     title: "Strength Special",
     price: "PKR 2500",
     period: "/ month",
@@ -27,7 +29,7 @@ const memberships = [
   },
   {
     slug: "Cardio",
-    image: "public/ultraego/14.PNG",
+    image: `${assetBase}ultraego/14.PNG`,
     title: "Cardio",
     price: "PKR 2500",
     period: "/ month",
@@ -37,7 +39,7 @@ const memberships = [
   },
   {
     slug: "Ladies-Class",
-    image: "public/ultraego/18.PNG",
+    image: `${assetBase}ultraego/18.PNG`,
     title: "Ladies Class",
     price: "PKR 2500",
     period: "/ month",
@@ -47,7 +49,7 @@ const memberships = [
   },
   {
     slug: "Combine",
-    image: "public/ultraego/15.PNG",
+    image: `${assetBase}ultraego/15.PNG`,
     title: "Combine",
     price: "PKR 5000",
     period: "/ month",
@@ -60,7 +62,7 @@ const memberships = [
 const packages = [
   {
     slug: "Quarterly",
-    image: "public/ultraego/16.PNG",
+    image: `${assetBase}ultraego/16.PNG`,
     title: "Quarterly",
     price: "PKR 7000",
     period: "/ 3 months",
@@ -70,7 +72,7 @@ const packages = [
   },
   {
     slug: "Half-Year",
-    image: "public/ultraego/19.PNG",
+    image: `${assetBase}ultraego/19.PNG`,
     title: "Half Year",
     price: "PKR 14000",
     period: "/ 6 months",
@@ -80,7 +82,7 @@ const packages = [
   },
   {
     slug: "Yearly",
-    image: "public/ultraego/3.PNG",
+    image: `${assetBase}ultraego/3.PNG`,
     title: "Yearly",
     price: "PKR 25000",
     period: "/ 12 months",
@@ -141,6 +143,18 @@ const MembershipCard = ({ plan, joinPlan }) => (
 );
 
 const Memberships = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  useEffect(() => {
+    const hiddenElements = document.querySelectorAll(".membership-page > *");
+    hiddenElements.forEach((element) => observer.observe(element));
+  }, []);
   let nav = useNavigate();
   let [isModalDisplay, setModalDisplay] = useState(true);
 

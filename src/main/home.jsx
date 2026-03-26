@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SideBar from "./sidebar.jsx";
 import EndBar from "./endBar.jsx";
@@ -6,7 +6,53 @@ import EndBar from "./endBar.jsx";
 const Home = () => {
   const assetBase = import.meta.env.BASE_URL;
   let [isModalDisplay, setModalDisplay] = useState(true);
+  let [openFaqIndex, setOpenFaqIndex] = useState(null);
+  let [membership, setMembership] = useState("membership");
+  
   let nav = useNavigate();
+  const faqItems = [
+    {
+      question: "How do I join Ultra Ego Physique?",
+      answer: `Pick a membership, visit the gym, and our team will guide you through the next step.`,
+    },
+    {
+      question: "Can beginners train here?",
+      answer:
+        "Yes. We keep the process simple, clear, and manageable for first-time members.",
+    },
+    {
+      question: "Do you offer personal training?",
+      answer:
+        "Yes. Our trainers help with form, structure, and steady progress for your goals.",
+    },
+    {
+      question: "What are your hours like?",
+      answer:
+        "Our schedule is built for morning, afternoon, and evening training sessions.",
+    },
+    {
+      question: "What should I bring on day one?",
+      answer:
+        "Bring workout clothes, water, and a focused mindset. We handle the rest.",
+    },
+  ];
+
+  function toggleFaq(index) {
+    setOpenFaqIndex((current) => (current === index ? null : index));
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  useEffect(() => {
+    const hiddenElements = document.querySelectorAll(".home-page > *");
+    hiddenElements.forEach((element) => observer.observe(element));
+  }, []);
 
   function joinGym() {
     setModalDisplay(false);
@@ -46,7 +92,7 @@ const Home = () => {
 
             <div className="home-entry-modal-brand">
               <img
-                src={`public/ultraego/1.png`}
+                src={`${assetBase}ultraego/1.png`}
                 alt="Ultra Ego Physique Gym crest"
                 className="home-entry-modal-logo"
               />
@@ -90,7 +136,7 @@ const Home = () => {
         <section className="gym-hero">
           <h1 className="gym-title">
             <img
-              src={`public/ultraego/12.PNG`}
+              src={`${assetBase}ultraego/12.PNG`}
               className="cool-pic-baki"
               alt="Ultra Ego Physique Gym athlete"
             />
@@ -115,7 +161,7 @@ const Home = () => {
 
           <div className="home-promo-video-wrap">
             <video
-              src={`public/clip.mp4`}
+              src={`${assetBase}clip.mp4`}
               className="home-promo-video"
               muted
               autoPlay
@@ -124,6 +170,45 @@ const Home = () => {
             ></video>
           </div>
         </section>
+      
+
+        <section className="home-faq" aria-label="Frequently asked questions">
+          <div className="home-faq-header">
+            <p className="home-faq-kicker">Quick Answers</p>
+            <h2 className="home-faq-title">Frequently Asked Questions</h2>
+          </div>
+
+          <div className="home-faq-list">
+            {faqItems.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+
+              return (
+                <article
+                  key={item.question}
+                  className={`home-faq-item${isOpen ? " is-open" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="home-faq-question"
+                    aria-expanded={isOpen}
+                    onClick={() => toggleFaq(index)}
+                  >
+                    <span className="home-faq-question-text">
+                      {item.question}
+                    </span>
+                    <span className="home-faq-icon" aria-hidden="true">
+                      {isOpen ? "↑" : "↓"}
+                    </span>
+                  </button>
+                  <div className="home-faq-answer-wrap" data-open={isOpen}>
+                    <p className="home-faq-answer">{item.answer}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
         <EndBar />
       </main>
     </>

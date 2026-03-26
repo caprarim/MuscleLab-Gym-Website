@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import EndBar from "./endBar.jsx";
 import { supabase } from "./supabase-client.jsx";
 
+const assetBase = import.meta.env.BASE_URL;
+
 const Payment = () => {
   let nav = useNavigate();
 
@@ -73,7 +75,7 @@ const Payment = () => {
             <aside className="payment-visual">
               <img
                 className="payment-visual-image"
-                src="public/ultraego/14.PNG"
+                src={`${assetBase}ultraego/14.PNG`}
                 alt="Ultra Ego Physique Gym showcase"
               />
 

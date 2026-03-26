@@ -3,15 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import SideBar from "./sidebar.jsx";
 import EndBar from "./endBar.jsx";
 
+const assetBase = import.meta.env.BASE_URL;
+
 const MoreInfo = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  useEffect(() => {
+    const hiddenElements = document.querySelectorAll(".moreinfo-page > *");
+    hiddenElements.forEach((element) => observer.observe(element));
+  }, []);
   const showcaseSlides = [
-    "public/ultraego/16.PNG",
-    "public/ultraego/17.PNG",
-    "public/ultraego/18.PNG",
-    "public/ultraego/19.PNG",
-    "public/ultraego/21.PNG",
-    "public/ultraego/22.PNG",
-    "public/ultraego/23.PNG",
+    `${assetBase}ultraego/16.PNG`,
+    `${assetBase}ultraego/17.PNG`,
+    `${assetBase}ultraego/18.PNG`,
+    `${assetBase}ultraego/19.PNG`,
+    `${assetBase}ultraego/21.PNG`,
+    `${assetBase}ultraego/22.PNG`,
+    `${assetBase}ultraego/23.PNG`,
   ];
   const [activeSlide, setActiveSlide] = useState(0);
   let nav = useNavigate();
@@ -40,7 +54,7 @@ const MoreInfo = () => {
           <h1 className="moreinfo-title">Move With Intention.</h1>
           <div className="moreinfo-hero-image-wrap">
             <img
-              src="public/ultraego/14.PNG"
+              src={`${assetBase}ultraego/14.PNG`}
               className="moreinfo-hero-image"
               alt="Ultra Ego Physique Gym training floor"
             />
@@ -204,14 +218,14 @@ const MoreInfo = () => {
 
           <div className="moreinfo-recovery-media">
             <img
-              src="public/ultraego/13.PNG"
+              src={`${assetBase}ultraego/13.PNG`}
               alt="Ultra Ego Physique Gym showcase"
               className="moreinfo-recovery-image"
             />
           </div>
         </section>
+        <EndBar />
       </main>
-      <EndBar />
     </>
   );
 };

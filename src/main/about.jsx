@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "./sidebar.jsx";
 import { useNavigate } from "react-router-dom";
 import EndBar from "./endBar.jsx";
 
 const About = () => {
   let nav = useNavigate();
+  const assetBase = import.meta.env.BASE_URL;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  useEffect(() => {
+    const hiddenElements = document.querySelectorAll(".about-page > *");
+    hiddenElements.forEach((element) => observer.observe(element));
+  }, []);
 
   return (
     <>
@@ -18,7 +31,7 @@ const About = () => {
 
         <section className="about-v2-hero">
           <img
-            src={`public/ultraego/19.PNG`}
+            src={`${assetBase}ultraego/19.PNG`}
             className="about-v2-hero-image"
             alt="Ultra Ego Physique Gym training"
           />
@@ -96,8 +109,8 @@ const About = () => {
             </article>
           </div>
         </section>
+        <EndBar />
       </main>
-      <EndBar />
     </>
   );
 };

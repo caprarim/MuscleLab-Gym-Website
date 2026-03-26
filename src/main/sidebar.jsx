@@ -1,6 +1,8 @@
 import React from "react";
 
 const SideBar = ({ click1, click2, click3, click4 }) => {
+  const assetBase = import.meta.env.BASE_URL;
+
   return (
     <>
       <header className="gym-header unified-sidebar">
@@ -23,7 +25,7 @@ const SideBar = ({ click1, click2, click3, click4 }) => {
           <div className="unified-sidebar-brand" onClick={click2}>
             <img
               className="gym-nav-logo unified-sidebar-logo"
-              src={`public/ultraego/1.png`}
+              src={`${assetBase}ultraego/1.png`}
               alt="Ultra Ego Physique Gym logo"
             />
           </div>
